@@ -2,6 +2,7 @@
     chosen {
         zmk,kscan = &kscan0;
         zmk,matrix_transform = &default_transform;
+        /delete-property/ zmk,physical-layout;
     };
 
     kscan0: kscan_0 {
@@ -10,18 +11,18 @@
         wakeup-source;
 
         row-gpios
-            = <&gpio1 0  (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>
-            , <&gpio0 11 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>
-            , <&gpio1 4  (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>
-            , <&gpio0 6  (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>
+            = <&gpio1 0  (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)> // p1.00
+            , <&gpio0 11 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)> // p0.11
+            , <&gpio1 4  (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)> // p1.04
+            , <&gpio1 6  (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)> // p1.06
             ;
 
         col-gpios
-            = <&gpio1 15 GPIO_ACTIVE_HIGH>
-            , <&gpio1 13 GPIO_ACTIVE_HIGH>
-            , <&gpio1 11 GPIO_ACTIVE_HIGH>
-            , <&gpio0 10 GPIO_ACTIVE_HIGH>
-            , <&gpio0 9  GPIO_ACTIVE_HIGH>
+            = <&gpio1 15 GPIO_ACTIVE_HIGH> // p1.15
+            , <&gpio1 13 GPIO_ACTIVE_HIGH> // p1.13
+            , <&gpio1 11 GPIO_ACTIVE_HIGH> // p1.11
+            , <&gpio0 10 GPIO_ACTIVE_HIGH> // p0.10
+            , <&gpio0 9  GPIO_ACTIVE_HIGH> // p0.09
             ;
     };
 
