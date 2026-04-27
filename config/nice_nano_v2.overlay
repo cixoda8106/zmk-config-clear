@@ -22,7 +22,7 @@
             , <&gpio1 11 GPIO_ACTIVE_HIGH>
             , <&gpio0 10 GPIO_ACTIVE_HIGH>
             , <&gpio0 9  GPIO_ACTIVE_HIGH>
-            , <&gpio0 2  GPIO_ACTIVE_HIGH> // Фантомный 6-й столбец для отлова col 5
+            , <&gpio0 2  GPIO_ACTIVE_HIGH>
             ;
     };
 
