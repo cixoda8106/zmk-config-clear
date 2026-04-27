@@ -20,6 +20,8 @@
 ---
 include:
   - board: nice_nano_v2
+    shield: klukva40_left
     snippet: zmk-usb-logging
   - board: nice_nano_v2
+    shield: klukva40_right
     snippet: zmk-usb-logging
