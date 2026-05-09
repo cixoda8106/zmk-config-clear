@@ -1,20 +1,20 @@
 manifest:
   remotes:
     - name: zmkfirmware
-      url-base: https://github.com/zmkfirmware
-    - name: infused-kim
-      url-base: https://github.com/infused-kim
-    - name: petejohanson
-      url-base: https://github.com/petejohanson
+      url-base: https://github.com
     - name: urob
-      url-base: https://github.com/urob
+      url-base: https://github.com
+    - name: infused-kim
+      url-base: https://github.com
 
   projects:
+    # Используем форк urob — он на 99% совпадает с официальным, но в нем есть мышь
     - name: zmk
-      remote: infused-kim
-      revision: pr-testing/mouse_ps2_module_base
+      remote: urob
+      revision: main
       import: app/west.yml
 
+    # Драйвер трекпоинта
     - name: kb_zmk_ps2_mouse_trackpoint_driver
       remote: infused-kim
       revision: main
