@@ -8,7 +8,7 @@ manifest:
       url-base: https://github.com
 
   projects:
-    # Используем форк urob — он на 99% совпадает с официальным, но в нем есть мышь
+    # Исправлено: теперь west пойдет в ://github.com
     - name: zmk
       remote: urob
       revision: main
