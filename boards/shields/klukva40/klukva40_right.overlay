@@ -42,14 +42,19 @@
         >;
     };
 
-    /* Настройка трекпоинта PS/2 */
-    trackpoint: trackpoint {
-        compatible = "zmk,input-mouse-ps2";
+    nrf_ps2: nrf_ps2 {
+        compatible = "zmk,input-mouse-ps2-gpio";
         data-gpios = <&gpio0 6 (GPIO_ACTIVE_HIGH | GPIO_PULL_UP)>;
         clk-gpios = <&gpio0 8 (GPIO_ACTIVE_HIGH | GPIO_PULL_UP)>;
     };
 
-    /* Обработчик сигналов трекпоинта */
+    /* 2. Настраиваем устройство, ссылаясь на созданную шину */
+    trackpoint: trackpoint {
+        compatible = "zmk,input-mouse-ps2";
+        ps2-device = <&nrf_ps2>;  /* Это связывает логику с пинами выше */
+    };
+
+    /* 3. Обработчик остается как был, он ссылается на trackpoint */
     trackpoint_listener: trackpoint_listener {
         compatible = "zmk,input-behavior-listener";
         device = <&trackpoint>;
