@@ -1,17 +1,28 @@
 manifest:
-  defaults:
-    revision: v0.3
   remotes:
     - name: zmkfirmware
       url-base: https://github.com/zmkfirmware
-    # Additional modules containing boards/shields/custom code can be listed here as well
-    # See https://docs.zephyrproject.org/3.2.0/develop/west/manifest.html#projects
+    - name: infused-kim
+      url-base: https://github.com
+    - name: petejohanson
+      url-base: https://github.com
+
   projects:
+    # Используем форк с поддержкой мыши
     - name: zmk
-      remote: zmkfirmware
+      remote: infused-kim
+      revision: pr-testing/mouse_ps2_module_base
       import: app/west.yml
+
+    # Модуль для обработки движений
     - name: zmk-input-behavior-listener
       remote: petejohanson
       revision: main
+
+    # Сам драйвер для PS/2 трекпоинта
+    - name: kb_zmk_ps2_mouse_trackpoint_driver
+      remote: infused-kim
+      revision: main
+
   self:
     path: config
