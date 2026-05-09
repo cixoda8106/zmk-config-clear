@@ -1,0 +1,5 @@
+config SHIELD_KLUKVA40_LEFT
+    def_bool $(shields_list_contains,klukva40_left)
+
+config SHIELD_KLUKVA40_RIGHT
+    def_bool $(shields_list_contains,klukva40_right)
