@@ -7,7 +7,7 @@
 
     kscan0: kscan {
         compatible = "zmk,kscan-gpio-matrix";
-        diode-direction = "col2row"; // если не заработает, поменяем на row2col
+        diode-direction = "row2col"; // если не заработает, поменяем на row2col
 
         row-gpios
             = <&gpio0 24 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>
