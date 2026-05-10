@@ -1,6 +1,6 @@
 #include <dt-bindings/zmk/matrix_transform.h>
 #include <dt-bindings/zmk/mouse.h>
-#include "trackpoint.dtsi"
+
 / {
     chosen {
         zmk,kscan = &kscan0;
@@ -492,6 +492,7 @@
 		status = "okay";
         compatible = "zmk,input-mouse-ps2";
 	    ps2-device = <&uart_ps2>;
+        tp-y-invert;
     };
 
     mouse_ps2_input_listener: mouse_ps2_input_listener {
