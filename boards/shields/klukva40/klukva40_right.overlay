@@ -44,12 +44,9 @@
 
 #define MOUSE_PS2_DRIVER_UART
 
-#define MOUSE_PS2_PIN_SCL_PRO_MICRO <&pro_micro 8 GPIO_ACTIVE_HIGH>
-// SCL (Clock) — это P0.06, что соответствует pro_micro 0
 #define MOUSE_PS2_PIN_SCL_PRO_MICRO <&pro_micro 1 GPIO_ACTIVE_HIGH>
-
-// SDA (Data) — это P0.08, что соответствует pro_micro 1
 #define MOUSE_PS2_PIN_SDA_PRO_MICRO <&pro_micro 0 GPIO_ACTIVE_HIGH>
 
-// Настройка для UART драйвера (P0.08 -> 0, 8)
-#define MOUSE_PS2_PIN_SDA_PINCTRL <NRF_PSEL(UART_RX, 0, 6)>
+#define MOUSE_PS2_PIN_RST_PRO_MICRO <&pro_micro 10 GPIO_ACTIVE_HIGH>
+
+#define MOUSE_PS2_PIN_SDA_PINCTRL <NRF_PSEL(UART_RX, 0, 8)>
