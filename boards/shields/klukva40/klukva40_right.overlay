@@ -5,8 +5,6 @@
     chosen {
         zmk,kscan = &kscan0;
         zmk,matrix_transform = &default_transform;
-        /* Связываем трекпоинт с системой ввода */
-        zmk,input_listener = &trackpoint_listener;
     };
 
     /* Настройка матрицы (ваша рабочая версия) */
@@ -40,29 +38,5 @@
             RC(2,4) RC(2,3) RC(2,2) RC(2,1) RC(2,0)
             RC(3,4) RC(3,3) RC(3,2) RC(3,1) RC(3,0)
         >;
-    };
-
-    nrf_ps2: nrf_ps2 {
-        compatible = "zmk,input-mouse-ps2-gpio";
-        data-gpios = <&gpio0 6 (GPIO_ACTIVE_HIGH | GPIO_PULL_UP)>;
-        clk-gpios = <&gpio0 8 (GPIO_ACTIVE_HIGH | GPIO_PULL_UP)>;
-    };
-
-    /* 2. Настраиваем устройство, ссылаясь на созданную шину */
-    trackpoint: trackpoint {
-        compatible = "zmk,input-mouse-ps2";
-        ps2-device = <&nrf_ps2>;  /* Это связывает логику с пинами выше */
-    };
-
-    /* 3. Обработчик остается как был, он ссылается на trackpoint */
-    trackpoint_listener: trackpoint_listener {
-        compatible = "zmk,input-behavior-listener";
-        device = <&trackpoint>;
-        layers = <0>;
-        evt-type = <INPUT_EV_REL>;
-        x-input-code = <INPUT_REL_X>;
-        y-input-code = <INPUT_REL_Y>;
-        scale-multiplier = <1>;
-        scale-divisor = <1>;
     };
 };

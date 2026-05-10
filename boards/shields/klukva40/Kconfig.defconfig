@@ -1,0 +1,9 @@
+if SHIELD_YOUR_KEYBOARD_TP_RIGHT
+
+config ZMK_KEYBOARD_NAME
+    default "Klukva 40"
+
+config ZMK_SPLIT_ROLE_CENTRAL
+    default y
+
+endif
