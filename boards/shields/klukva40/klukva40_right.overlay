@@ -39,6 +39,11 @@
             RC(3,4) RC(3,3) RC(3,2) RC(3,1) RC(3,0)
         >;
     };
+
+        input_relay_config {
+        compatible = "zmk,input-listener";
+        device = <&mouse_ps2>;
+    };
 };
 
   #define MOUSE_PS2_PIN_SCL_PRO_MICRO <&gpio0 6 GPIO_ACTIVE_HIGH>
@@ -87,7 +92,7 @@
 };
 
     &uart0 {
-        status = "disabled";
+        status = "okay";
         compatible = "nordic,nrf-uarte";
 
         current-speed = MOUSE_PS2_UART_BAUD_RATE;
@@ -97,7 +102,7 @@
         pinctrl-names = "default", "sleep";
 
         uart_ps2: uart_ps2 {
-            status="disabled";
+            status="okay";
             compatible = "uart-ps2";
             scl-gpios = MOUSE_PS2_PIN_SCL_PRO_MICRO;
             sda-gpios = MOUSE_PS2_PIN_SDA_PRO_MICRO;
@@ -108,7 +113,7 @@
 
 / {
     mouse_ps2: mouse_ps2 {
-		status = "disabled";
+		status = "okay";
         compatible = "zmk,input-mouse-ps2";
 
 
@@ -122,7 +127,7 @@
 
     mouse_ps2_input_listener: mouse_ps2_input_listener {
         compatible = "zmk,input-listener-ps2";
-        status = "disabled";
+        status = "okay";
 
         device = <&mouse_ps2>;
 
