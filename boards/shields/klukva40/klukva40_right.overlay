@@ -1,6 +1,6 @@
 #include <dt-bindings/zmk/matrix_transform.h>
 #include <dt-bindings/zmk/mouse.h>
-#include <dt-bindings/zmk/pro_micro.h>
+
 / {
     chosen {
         zmk,kscan = &kscan0;
@@ -38,12 +38,6 @@
             RC(2,4) RC(2,3) RC(2,2) RC(2,1) RC(2,0)
             RC(3,4) RC(3,3) RC(3,2) RC(3,1) RC(3,0)
         >;
-    };
-
-    /* Виртуальный узел мыши для ZMK */
-    mouse_ps2_input: mouse_ps2_input {
-        compatible = "zmk,input-mouse-ps2";
-        ps2-device = <&mouse_ps2>;
     };
 };
 
@@ -90,9 +84,6 @@
 	};
 };
 
-
-#ifdef MOUSE_PS2_DRIVER_UART
-
     &uart0 {
         status = "disabled";
         compatible = "nordic,nrf-uarte";
@@ -111,19 +102,6 @@
         };
     };
 
-#else
-
-    / {
-        gpio_ps2: gpio_ps2 {
-            status = "disabled";
-
-            compatible = "gpio-ps2";
-            scl-gpios = MOUSE_PS2_PIN_SCL_PRO_MICRO;
-            sda-gpios = MOUSE_PS2_PIN_SDA_PRO_MICRO;
-        };
-    };
-
-#endif
 
 
 / {
@@ -131,16 +109,14 @@
 		status = "disabled";
         compatible = "zmk,input-mouse-ps2";
 
-#ifdef MOUSE_PS2_DRIVER_UART
-	    ps2-device = <&uart_ps2>;
-#else
-	    ps2-device = <&gpio_ps2>;
-#endif
 
-#ifdef MOUSE_PS2_PIN_RST_PRO_MICRO
+	    ps2-device = <&uart_ps2>;
+
+
+
         rst-gpios = MOUSE_PS2_PIN_RST_PRO_MICRO;
-#endif
-    };
+
+};
 
     mouse_ps2_input_listener: mouse_ps2_input_listener {
         compatible = "zmk,input-listener-ps2";
