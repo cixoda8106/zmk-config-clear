@@ -7,7 +7,7 @@
         zmk,matrix_transform = &default_transform;
     };
 
-    /* Настройка матрицы (ваша рабочая версия) */
+    /* Матрица клавиатуры */
     kscan0: kscan {
         compatible = "zmk,kscan-gpio-matrix";
         diode-direction = "col2row"; 
@@ -39,15 +39,42 @@
             RC(3,4) RC(3,3) RC(3,2) RC(3,1) RC(3,0)
         >;
     };
+
+    /* Виртуальный узел мыши для ZMK */
+    mouse_ps2_input: mouse_ps2_input {
+        compatible = "zmk,input-mouse-ps2";
+        ps2-device = <&mouse_ps2>;
+    };
 };
 
+/* Настройка пинов UART для PS/2 */
+&pinctrl {
+    uart0_default: uart0_default {
+        group1 {
+            psels = <NRF_PSEL(UART_RX, 0, 8)>; // Пин SDA (P0.08 / Pro Micro 0)
+            bias-pull-up;
+        };
+    };
 
-#define MOUSE_PS2_DRIVER_UART
+    uart0_sleep: uart0_sleep {
+        group1 {
+            psels = <NRF_PSEL(UART_RX, 0, 8)>;
+            low-power-enable;
+        };
+    };
+};
 
-#define MOUSE_PS2_PIN_SCL_PRO_MICRO <&pro_micro 1 GPIO_ACTIVE_HIGH>
-#define MOUSE_PS2_PIN_SDA_PRO_MICRO <&pro_micro 0 GPIO_ACTIVE_HIGH>
+/* Драйвер через UART */
+&uart0 {
+    status = "okay";
+    current-speed = <14400>;
+    pinctrl-0 = <uart0_default>;
+    pinctrl-1 = <uart0_sleep>;
+    pinctrl-names = "default", "sleep";
 
-#define MOUSE_PS2_PIN_RST_PRO_MICRO <&pro_micro 10 GPIO_ACTIVE_HIGH>
-
-#define MOUSE_PS2_PIN_SDA_PINCTRL <NRF_PSEL(UART_RX, 0, 8)>
-#define MOUSE_PS2_UART_BAUD_RATE <14400>
+    mouse_ps2: mouse_ps2 {
+        compatible = "mouse-ps2-driver-uart";
+        // Пин RST (P0.02 / Pro Micro 10)
+        rst-gpios = <&gpio0 2 (GPIO_ACTIVE_HIGH | GPIO_PULL_UP)>;
+    };
+};
