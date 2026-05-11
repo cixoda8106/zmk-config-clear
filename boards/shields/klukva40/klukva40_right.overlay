@@ -519,7 +519,7 @@
 			mv-min-max = <1000>;
 			mv-deadzone = <50>;
 			scale-multiplier = <10>;
-			scale-divisor = <1000>;
+			scale-divisor = <500>;
 			invert;
 			evt-type = <INPUT_EV_REL>;
 			input-code = <INPUT_REL_X>;
@@ -530,7 +530,7 @@
 			mv-min-max = <1000>;
 			mv-deadzone = <20>;
 			scale-multiplier = <9>;
-			scale-divisor = <1000>;
+			scale-divisor = <50>;
 
 			evt-type = <INPUT_EV_REL>;
 			input-code = <INPUT_REL_Y>;
