@@ -492,7 +492,6 @@
 		status = "okay";
         compatible = "zmk,input-mouse-ps2";
 	    ps2-device = <&uart_ps2>;
-        tp-y-invert;
     };
 
     mouse_ps2_input_listener: mouse_ps2_input_listener {
@@ -518,8 +517,8 @@
 			io-channels = <&adc 7>; // <--- see ain-map.png for nRF52840
 			mv-mid = <1540>;
 			mv-min-max = <1000>;
-			mv-deadzone = <50>;
-			scale-multiplier = <1000>;
+			mv-deadzone = <70>;
+			scale-multiplier = <10>;
 			scale-divisor = <2000>;
 			invert;
 			evt-type = <INPUT_EV_REL>;
@@ -529,8 +528,8 @@
 			io-channels = <&adc 0>; // <--- see ain-map.png for nRF52840
 			mv-mid = <1630>;
 			mv-min-max = <1000>;
-			mv-deadzone = <20>;
-			scale-multiplier = <1000>;
+			mv-deadzone = <70>;
+			scale-multiplier = <10>;
 			scale-divisor = <2000>;
 invert;
 			evt-type = <INPUT_EV_REL>;
