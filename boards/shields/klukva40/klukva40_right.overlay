@@ -522,7 +522,7 @@
 			scale-divisor = <70>;
 			invert;
 			evt-type = <INPUT_EV_REL>;
-			input-code = <INPUT_REL_WHEEL>;
+			input-code = <INPUT_REL_Y>;
 		};
 		y-ch {
 			io-channels = <&adc 0>; // <--- see ain-map.png for nRF52840
@@ -533,7 +533,7 @@
 			scale-divisor = <4>;
 			invert;
 			evt-type = <INPUT_EV_REL>;
-			input-code = <INPUT_REL_WHEEL>;
+			input-code = <INPUT_REL_X>;
 
 		};
 	};
