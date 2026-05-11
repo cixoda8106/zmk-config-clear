@@ -492,6 +492,7 @@
 		status = "okay";
         compatible = "zmk,input-mouse-ps2";
 	    ps2-device = <&uart_ps2>;
+        tp-x-invert;
     };
 
     mouse_ps2_input_listener: mouse_ps2_input_listener {
@@ -518,8 +519,8 @@
 			mv-mid = <1540>;
 			mv-min-max = <1000>;
 			mv-deadzone = <70>;
-			scale-multiplier = <10>;
-			scale-divisor = <2000>;
+			scale-multiplier = <5>;
+			scale-divisor = <3000>;
 			invert;
 			evt-type = <INPUT_EV_REL>;
 			input-code = <INPUT_REL_HWHEEL>;
@@ -529,8 +530,8 @@
 			mv-mid = <1630>;
 			mv-min-max = <1000>;
 			mv-deadzone = <70>;
-			scale-multiplier = <10>;
-			scale-divisor = <2000>;
+			scale-multiplier = <5>;
+			scale-divisor = <3000>;
 invert;
 			evt-type = <INPUT_EV_REL>;
 			input-code = <INPUT_REL_WHEEL>;
