@@ -39,6 +39,11 @@
             RC(3,4) RC(3,3) RC(3,2) RC(3,1) RC(3,0)
         >;
     };
+
+     joystick_splitter {
+        compatible = "zmk,input-splitter";
+        device = <&anin0>;
+    };
 };
 
  /*
