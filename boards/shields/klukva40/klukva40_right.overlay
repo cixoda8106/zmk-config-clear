@@ -542,7 +542,7 @@
 / {
     /* Направляем данные с джойстика в систему ввода ZMK */
     joystick_splitter {
-        compatible = "zmk,input-splitter";
+        compatible = "zmk,input-listener";
         device = <&anin0>;
     };
 };
