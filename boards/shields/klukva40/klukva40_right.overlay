@@ -531,7 +531,7 @@
 			mv-mid = <1681>;
 			mv-min-max = <1000>;
 			mv-deadzone = <20>;
-			scale-multiplier = <1>;
+			scale-multiplier = <2>;
 			scale-divisor = <500>;
 invert;
 			evt-type = <INPUT_EV_REL>;
