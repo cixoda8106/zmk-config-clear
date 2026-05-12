@@ -23,7 +23,7 @@ manifest:
       remote: infused-kim
       revision: main
     - name: zmk-analog-input-driver
-      remote: cixoda8106
+      remote: badjeff
       revision: main
   self:
     path: config
