@@ -9,12 +9,14 @@ manifest:
     - name: badjeff
       url-base: https://github.com/badjeff
   projects:
+    #- name: zmk
+    #  remote: infused-kim
+    #  revision: pr-testing/mouse_ps2_module_base
+    #  import: app/west.yml
     - name: zmk
-      remote: infused-kim
-      revision: pr-testing/mouse_ps2_module_base
+      remote: urob
+      revision: main
       import: app/west.yml
-
-    # pete's zmk fork with the most up to date mouse PR, which is more
     - name: kb_zmk_ps2_mouse_trackpoint_driver
       remote: infused-kim
       revision: main
