@@ -515,10 +515,10 @@
 / {
 	anin0: analog_input_0 {
 		compatible = "zmk,analog-input";
-		sampling-hz = <10>;
+		sampling-hz = <60>;
         /*
 		x-ch {
-			io-channels = <&adc 7>; // <--- see ain-map.png for nRF52840
+			io-channels = <&adc 0>; // <--- see ain-map.png for nRF52840
 			mv-mid = <1536>;
 			mv-min-max = <1000>;
 			mv-deadzone = <20>;
@@ -529,7 +529,7 @@
 			input-code = <INPUT_REL_HWHEEL>;
 		};*/
 		y-ch {
-			io-channels = <&adc 0>; // <--- see ain-map.png for nRF52840
+			io-channels = <&adc 7>; // <--- see ain-map.png for nRF52840
 			mv-mid = <1630>;
 			mv-min-max = <900>;
 			mv-deadzone = <100>;
