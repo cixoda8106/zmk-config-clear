@@ -537,7 +537,7 @@
 			scale-divisor = <300>;
 invert;
 			evt-type = <INPUT_EV_REL>;
-			input-code = <INPUT_REL_WHEEL_HI_RES>;
+			input-code = <INPUT_REL_WHEEL>;
 
 		};
 	};
