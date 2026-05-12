@@ -8,6 +8,8 @@ manifest:
       url-base: https://github.com/urob
     - name: badjeff
       url-base: https://github.com/badjeff
+    - name: cixoda8106
+      url-base: https://github.com/cixoda8106
   projects:
     - name: zmk
       remote: infused-kim
@@ -21,7 +23,7 @@ manifest:
       remote: infused-kim
       revision: main
     - name: zmk-analog-input-driver
-      remote: badjeff
+      remote: cixoda8106
       revision: main
   self:
     path: config
